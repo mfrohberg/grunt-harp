@@ -18,6 +18,7 @@ module.exports = function(grunt) {
     var done = this.async();
     var defaults = {
       server: false,
+      multihost: false,
       source: './',
       dest: 'build'
     };
@@ -27,6 +28,10 @@ module.exports = function(grunt) {
     if (options.server) {
       harp.server(source, { port: 9000 }, function () {
         console.log('Harp server running on port %d', 9000);
+      });
+    } else if (options.multihost) {
+      harp.multihost(source, {port: 9000 }, function () {
+        console.log('Harp serving multiple sites on port %d', 9000)
       });
     } else {
       harp.compile(source, dest, function (err) {
