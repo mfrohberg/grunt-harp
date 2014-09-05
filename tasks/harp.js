@@ -18,7 +18,6 @@ module.exports = function(grunt) {
     var done = this.async();
     var defaults = {
       server: false,
-      port: 29755,
       multihost: false,
       source: './',
       dest: 'build'
